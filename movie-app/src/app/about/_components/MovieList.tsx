@@ -10,7 +10,7 @@ export const MoviesList = ({ listLabel }: { listLabel: string }) => {
           <MoviesListMovieCard
             key={i}
             img="/DearSanta.svg"
-            rating={10}
+            rating={6.9}
             movieName="Dear Santa"
           />
         ))}
@@ -28,8 +28,8 @@ type MoviesListMovieCardProps = {
 const MoviesListHeader = ({ listLabel }: { listLabel: string }) => {
   return (
     <div className="flex justify-between items-center w-full">
-      <h3>{listLabel}</h3>
-      <Button variant="ghost">
+      <h3 className="text-2xl font-semibold">{listLabel}</h3>
+      <Button variant="ghost" className="text-sm">
         See more <ArrowRight />
       </Button>
     </div>
@@ -39,14 +39,16 @@ const MoviesListHeader = ({ listLabel }: { listLabel: string }) => {
 const MoviesListMovieCard = (props: MoviesListMovieCardProps) => {
   const { img, rating, movieName } = props;
   return (
-    <div className="rounded-md w-fit">
-      <img src={img} alt="Movie Image" className="rounded-t-md" />
+    <div className="rounded-md w-full">
+      <img src={img} alt="Movie Image" className="rounded-t-md w-full" />
       <div className="rounded-b-md bg-gray-200 flex flex-col gap-1 p-2">
-        <div className="flex">
-          <Star fill="#FDE047" stroke="none" />
+        <div className="flex text-xs items-center md:text-sm">
+          <Star fill="#FDE047" stroke="none" size={16} className="mr-1" />
           <p>{rating}</p>
+          <span className="text-gray-400">/</span>
+          <span className="text-gray-400">10</span>
         </div>
-        <p className="h-10">{movieName}</p>
+        <p className="h-10 text-sm md:text-lg">{movieName}</p>
       </div>
     </div>
   );
