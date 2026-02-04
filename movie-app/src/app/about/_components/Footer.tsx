@@ -2,15 +2,15 @@ import { Film, Mail, Phone } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <div className="bg-indigo-700 text-white flex flex-col gap-7 px-5 pt-10 pb-5 mt-8 md:flex-row md:gap-30 text-sm">
+    <div className="bg-indigo-700 text-white flex flex-col gap-7 px-5 pt-10 pb-5 mt-8 text-sm lg:flex-row lg:gap-30 md:px-20 md:py-10 lg:justify-between 2xl:w-285">
       <div className="flex flex-col gap-3">
         <div className="flex gap-2 items-center">
           <Film size={20} />
           <p className="italic font-bold">Movie Z</p>
         </div>
-        <p>© 2024 Movie Z. All Rights Reserved.</p>
+        <p className="lg:w-61.75">© 2024 Movie Z. All Rights Reserved.</p>
       </div>
-      <div className="flex justify-between md:justify-end md:w-228.25 md:gap-24">
+      <div className="flex justify-between lg:justify-end lg:gap-17">
         <div>
           <p>Contact information</p>
           <div className="mt-3 mb-6 flex gap-3 items-center">
@@ -31,7 +31,7 @@ export const Footer = () => {
 
         <div>
           <p className="mb-3">Follow us</p>
-          <div className="flex flex-col gap-3 md:flex-row">
+          <div className="flex flex-col gap-3 lg:flex-row">
             <p>Facebook</p>
             <p>Instagram</p>
             <p>Twitter</p>

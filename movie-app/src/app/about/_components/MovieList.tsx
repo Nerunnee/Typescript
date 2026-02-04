@@ -3,9 +3,9 @@ import { ArrowRight, Star } from "lucide-react";
 
 export const MoviesList = ({ listLabel }: { listLabel: string }) => {
   return (
-    <div className="flex flex-col gap-8 mt-8 mx-5 md:mx-20">
+    <div className="flex flex-col gap-8 mt-8 mx-5 md:mx-15 lg:mx-20">
       <MoviesListHeader listLabel={listLabel} />
-      <div className="grid grid-cols-2 gap-5 md:grid-cols-5">
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
           <MoviesListMovieCard
             key={i}
