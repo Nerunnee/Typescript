@@ -27,7 +27,7 @@ export const Hero = (props: HeroProps) => {
               <img
                 src="/Feature.jpg"
                 alt="movie image"
-                className="w-full md:mt-6 2xl:w-285 2xl:h-150"
+                className="w-full md:mt-6 2xl:h-150 object-cover object-top"
               />
 
               <div className="absolute top-1/4 left-2/12 md:top-3/6 md:left-1/12 2xl:left-1/5">
@@ -37,9 +37,7 @@ export const Hero = (props: HeroProps) => {
                 <CarouselNext className="w-6 h-6 md:w-10 md:h-10 lg:w-15 lg:h-15 2xl:bg-black 2xl:text-white" />
               </div>
 
-              <div>
-                
-              </div>
+              <div></div>
 
               <div className="flex flex-col gap-4 p-5 md:absolute md:text-sm md:w-70 md:top-1/6 md:right-6/12 md:gap-1 lg:text-base lg:w-101 lg:top-1/3 lg:right-3/4 lg:translate-x-1/2 lg:gap-4 2xl:top-1/3 2xl:right-3/5">
                 <div className="flex justify-between items-center md:text-white md:flex-col md:items-start">

@@ -5,6 +5,7 @@ import { MoviesList } from "./about/_components/MovieList";
 import { Footer } from "./about/_components/Footer";
 import { useEffect } from "react";
 import { getUpcomingMovies } from "../../utils/getData";
+import { ModeToggle } from "./about/_components/ModeToggle";
 
 export default function Home() {
   useEffect(() => {
