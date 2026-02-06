@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export default function MovieDetails() {
   return (
@@ -32,8 +33,7 @@ const MovieDetail = () => {
 
       <div>
         <img src="/wicked.jpg" alt="Movie Image" className="relative" />
-
-        <div className="flex items-center gap-3 absolute top-105 ml-3 text-white">
+        <div className="flex items-center gap-3 absolute top-105 ml-3 text-white mb-3">
           <Button
             variant="outline"
             size="icon"
@@ -45,6 +45,27 @@ const MovieDetail = () => {
           <p>2:35</p>
         </div>
       </div>
+
+      <div className="flex justify-between p-5">
+        <img src="/wickedsized.jpg" alt="Movie Image" className="w-25 h-37" />
+        <div className="w-50 ">
+          <div className=" flex flex-wrap gap-4 mt-4 mb-5">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <Badge key={i} variant={"outline"} className="px-2.5">
+                Fairy Tale
+              </Badge>
+            ))}
+          </div>
+          <p>
+            Elphaba, a misunderstood young woman because of her green skin, and
+            Glinda, a popular girl, become friends at Shiz University in the
+            Land of Oz. After an encounter with the Wonderful Wizard of Oz,
+            their friendship reaches a crossroads.
+          </p>
+        </div>
+      </div>
+
+      <div></div>
     </div>
   );
 };

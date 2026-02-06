@@ -1,4 +1,4 @@
-import { ChevronDown, Film, Moon, Search } from "lucide-react";
+import { ChevronDown, Film, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./ModeToggle";
 import {
@@ -79,7 +79,7 @@ export const Header = () => {
               <DropdownMenuItem className="w-134.25 flex flex-wrap gap-4 mt-4">
                 {movieGenres.map((genre) => (
                   <Badge key={genre.id} variant={"outline"} className="px-2.5">
-                    {genre.name} 
+                    {genre.name}
                   </Badge>
                 ))}
               </DropdownMenuItem>
