@@ -1,11 +1,9 @@
 "use client";
-import { Header } from "./about/_components/Header";
 import { Hero } from "./about/_components/Hero";
 import { MoviesList } from "./about/_components/MovieList";
-import { Footer } from "./about/_components/Footer";
 import { useEffect } from "react";
 import { getUpcomingMovies } from "../../utils/getData";
-import { ModeToggle } from "./about/_components/ModeToggle";
+import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -18,7 +16,7 @@ export default function Home() {
   const listLabel: string = "";
   return (
     <div className="2xl:flex 2xl:flex-col 2xl:justify-center 2xl:items-center">
-      <Header />
+      <Link href="/movieDetails"></Link>
       <Hero
         play="Now Playing:"
         movieName="Wicked"
@@ -32,7 +30,6 @@ export default function Home() {
       <MoviesList listLabel="Upcoming" />
       <MoviesList listLabel="Top Rated" />
       <MoviesList listLabel="Popular" />
-      <Footer />
     </div>
   );
 }

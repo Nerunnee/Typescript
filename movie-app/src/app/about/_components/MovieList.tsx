@@ -1,5 +1,7 @@
+import { MoviesListMovieCard } from "@/components/MovieListMovieCard";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export const MoviesList = ({ listLabel }: { listLabel: string }) => {
   return (
@@ -19,37 +21,15 @@ export const MoviesList = ({ listLabel }: { listLabel: string }) => {
   );
 };
 
-type MoviesListMovieCardProps = {
-  img: string;
-  rating: number;
-  movieName: string;
-};
-
 const MoviesListHeader = ({ listLabel }: { listLabel: string }) => {
   return (
     <div className="flex justify-between items-center w-full">
       <h3 className="text-2xl font-semibold">{listLabel}</h3>
-      <Button variant="ghost" className="text-sm">
-        See more <ArrowRight />
-      </Button>
-    </div>
-  );
-};
-
-const MoviesListMovieCard = (props: MoviesListMovieCardProps) => {
-  const { img, rating, movieName } = props;
-  return (
-    <div className="rounded-md w-full">
-      <img src={img} alt="Movie Image" className="rounded-t-md w-full" />
-      <div className="rounded-b-md bg-gray-200 flex flex-col gap-1 p-2 dark:bg-gray-800">
-        <div className="flex text-xs items-center md:text-sm">
-          <Star fill="#FDE047" stroke="none" size={16} className="mr-1" />
-          <p>{rating}</p>
-          <span className="text-gray-400">/</span>
-          <span className="text-gray-400">10</span>
-        </div>
-        <p className="h-10 text-sm md:text-lg">{movieName}</p>
-      </div>
+      <Link href="/seeMore">
+        <Button variant="ghost" className="text-sm">
+          See more <ArrowRight />
+        </Button>
+      </Link>
     </div>
   );
 };
