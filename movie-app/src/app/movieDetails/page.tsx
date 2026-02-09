@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Star, Play } from "lucide-react";
+import { Star, Play, Divide } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export default function MovieDetails() {
@@ -10,7 +10,23 @@ export default function MovieDetails() {
   );
 }
 
+const movieStaffInfos = [
+  { label: "Director", name: "Jon M. Chu" },
+  { label: "Writers", name: "Cynthia Erivo · Ariana Grande · Jeff Goldblum" },
+  { label: "Stars", name: "Cynthia Erivo · Ariana Grande · Jeff Goldblum" },
+];
+
 const MovieDetail = () => {
+  return (
+    <div>
+      <MovieDetailMovieTitle />
+      <MovieDetailMovieDesc />
+      <div></div>
+    </div>
+  );
+};
+
+const MovieDetailMovieTitle = () => {
   return (
     <div>
       <div className="flex justify-between px-5 mt-8 mb-4">
@@ -45,7 +61,13 @@ const MovieDetail = () => {
           <p>2:35</p>
         </div>
       </div>
+    </div>
+  );
+};
 
+const MovieDetailMovieDesc = () => {
+  return (
+    <div>
       <div className="flex justify-between p-5">
         <img src="/wickedsized.jpg" alt="Movie Image" className="w-25 h-37" />
         <div className="w-50 ">
@@ -65,7 +87,14 @@ const MovieDetail = () => {
         </div>
       </div>
 
-      <div></div>
+      <div className="px-5">
+        {movieStaffInfos.map((info, i) => (
+          <div key={i} className="flex gap-13.25">
+            <p className="w-30">{info.label}</p>
+            <p>{info.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
