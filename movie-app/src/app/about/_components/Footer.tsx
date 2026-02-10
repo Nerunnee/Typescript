@@ -6,9 +6,9 @@ export const Footer = () => {
       <div className="flex flex-col gap-3">
         <div className="flex gap-2 items-center">
           <Film size={20} />
-          <p className="italic font-bold">Movie Z</p>
+          <p className="italic font-bold">Movie N</p>
         </div>
-        <p className="lg:w-61.75">© 2024 Movie Z. All Rights Reserved.</p>
+        <p className="lg:w-61.75">© 2026 Movie N. All Rights Reserved.</p>
       </div>
       <div className="flex justify-between lg:justify-end lg:gap-17">
         <div>
@@ -17,7 +17,7 @@ export const Footer = () => {
             <Mail size={16} />
             <div>
               <p>Email:</p>
-              <p>support@movieZ.com</p>
+              <p>support@movieN.com</p>
             </div>
           </div>
           <div className="flex gap-3 items-center">

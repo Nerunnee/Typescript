@@ -1,6 +1,8 @@
-export const getUpcomingMovies = async () => {
+import { Response } from "@/lib/types";
+
+export const getMovies = async (listlabel: string): Promise<Response> => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/movie/${listlabel}?language=en-US&page=1`,
     {
       method: "GET",
       headers: {

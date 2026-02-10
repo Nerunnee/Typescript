@@ -41,7 +41,7 @@ export const Header = () => {
       <div className="flex justify-between items-center p-5 md:hidden">
         <div className="flex gap-2 text-indigo-700">
           <Film />
-          <p className="italic font-bold">Movie Z</p>
+          <p className="italic font-bold">Movie N</p>
         </div>
 
         <div className="flex gap-3">
@@ -55,7 +55,7 @@ export const Header = () => {
       <div className="hidden md:flex md:justify-between md:items-center md:px-15 md:py-3 2xl:w-285 2xl:px-30">
         <div className="flex gap-2 text-indigo-700">
           <Film />
-          <p className="italic font-bold">Movie Z</p>
+          <p className="italic font-bold">Movie N</p>
         </div>
 
         <div className="flex gap-3">

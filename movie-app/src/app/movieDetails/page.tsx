@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Star, Play, Divide } from "lucide-react";
+import { Star, Play } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export default function MovieDetails() {
