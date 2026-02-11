@@ -1,11 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { getMovieById, MovieDetails } from "@/lib/api";
 
-export default function MovieDetails() {
+export default async function MovieDetailsPage({
+  params,
+}: {
+  params: Promise<{ movieId: string }>;
+}) {
+  const { movieId } = await params;
+
+  const movie = await getMovieById(movieId);
+
   return (
     <div>
-      <MovieDetail />
+      <MovieDetail movie={movie} />
     </div>
   );
 }
@@ -16,23 +25,31 @@ const movieStaffInfos = [
   { label: "Stars", name: "Cynthia Erivo · Ariana Grande · Jeff Goldblum" },
 ];
 
-const MovieDetail = () => {
+type MovieDetailProps = {
+  movie: MovieDetails;
+};
+
+const MovieDetail = ({ movie }: MovieDetailProps) => {
   return (
     <div>
-      <MovieDetailMovieTitle />
+      <MovieDetailMovieTitle movie={movie} />
       <MovieDetailMovieDesc />
       <div></div>
     </div>
   );
 };
 
-const MovieDetailMovieTitle = () => {
+type MovieDetailMovieTitleProps = {
+  movie: MovieDetails;
+};
+
+const MovieDetailMovieTitle = ({ movie }: MovieDetailMovieTitleProps) => {
   return (
     <div>
       <div className="flex justify-between px-5 mt-8 mb-4">
         <div>
-          <h3 className="text-2xl font-semibold">Wicked</h3>
-          <p className="text-sm">2024.11.26 · PG · 2h 40m</p>
+          <h3 className="text-2xl font-semibold">{movie.title}</h3>
+          <p className="text-sm"></p>
         </div>
         <div className="flex items-center gap-1 text-sm mr-3">
           <Star fill="#FDE047" stroke="none" />
