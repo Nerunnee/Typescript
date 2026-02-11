@@ -18,9 +18,13 @@ export const MoviesListMovieCard = (props: MoviesListMovieCardProps) => {
       <div className="rounded-b-md bg-gray-200 flex flex-col gap-1 p-2 dark:bg-gray-800">
         <div className="flex text-xs items-center md:text-sm">
           <Star fill="#FDE047" stroke="none" size={16} className="mr-1" />
-          <p>{rating}</p>
+          <div className="flex">
+            <p>{rating.toFixed(1)}</p>
+            <span className="text-gray-400">/</span>
+            <span className="text-gray-400">10</span>
+          </div>
         </div>
-        <p className="h-10 text-sm md:text-lg">{movieName}</p>
+        <p className="h-12 text-sm md:text-lg">{movieName}</p>
       </div>
     </div>
   );

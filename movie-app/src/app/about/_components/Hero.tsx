@@ -37,7 +37,9 @@ export const Hero = (props: HeroProps) => {
                   </div>
                   <div className="flex md:text-lg">
                     <Star fill="#FDE047" stroke="none" />
-                    <p className="font-semibold">{movie.vote_average}</p>
+                    <p className="font-semibold">
+                      {movie.vote_average.toFixed(1)}
+                    </p>
                   </div>
                 </div>
 
