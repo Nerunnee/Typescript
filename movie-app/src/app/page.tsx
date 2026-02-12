@@ -1,14 +1,19 @@
+import { Movie } from "@/lib/types";
 import { getMovies } from "../../utils/getData";
 import { Hero } from "./about/_components/Hero";
 import { MoviesList } from "./about/_components/MovieList";
-// import { useEffect } from "react";
+// import { useEffect, useState } from "react";
 
 export default async function Home() {
+  // const [movies, setMovies] = useState<Movie[]>([]);
+
   // useEffect(() => {
   //   const fetchMovies = async () => {
-  //     const movieData = await getUpcomingMovies();
-  //     console.log(movieData);
+  //     const { results } = await getMovies(listLabel);
+
+  //     setMovies(results);
   //   };
+
   //   fetchMovies();
   // }, []);
 
