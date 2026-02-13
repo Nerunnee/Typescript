@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
+import { SearchInput } from "./SearchInput";
 
 const movieGenres = [
   { id: 1, name: "Action" },
@@ -45,9 +46,7 @@ export const Header = () => {
         </div>
 
         <div className="flex gap-3">
-          <Button variant="outline">
-            <Search />
-          </Button>
+          <SearchInput />
           <ModeToggle />
         </div>
       </div>
@@ -85,12 +84,7 @@ export const Header = () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button
-            variant="outline"
-            className="w-94.75 flex justify-start  text-gray-500 text-sm"
-          >
-            <Search /> Search...
-          </Button>
+          <SearchInput />
         </div>
         <ModeToggle />
       </div>

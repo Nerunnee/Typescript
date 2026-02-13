@@ -8,7 +8,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { getMovies } from "../../../../utils/getData";
+import { getMovies } from "../../../lib/getData";
 import Link from "next/link";
 
 const SeeMore = async ({

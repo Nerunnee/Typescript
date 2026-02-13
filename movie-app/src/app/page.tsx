@@ -1,7 +1,6 @@
-import { Movie } from "@/lib/types";
-import { getMovies } from "../../utils/getData";
-import { Hero } from "./about/_components/Hero";
-import { MoviesList } from "./about/_components/MovieList";
+import { getMovies } from "../lib/getData";
+import { Hero } from "./mainPage/_components/Hero";
+import { MoviesList } from "./mainPage/_components/MovieList";
 // import { useEffect, useState } from "react";
 
 export default async function Home() {
