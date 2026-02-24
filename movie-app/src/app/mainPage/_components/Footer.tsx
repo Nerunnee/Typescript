@@ -2,7 +2,7 @@ import { Film, Mail, Phone } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <div className="bg-indigo-700 text-white flex flex-col gap-7 px-5 pt-10 pb-5 mt-8 text-sm w-full lg:flex-row lg:gap-30 md:px-20 md:py-10 lg:justify-between">
+    <div className="bg-indigo-700 text-white flex flex-col gap-7 px-5 pt-10 pb-5 mt-8 text-sm w-full lg:flex-row lg:gap-30 md:px-15 md:py-10 lg:justify-between">
       <div className="flex flex-col gap-3">
         <div className="flex gap-2 items-center">
           <Film size={20} />

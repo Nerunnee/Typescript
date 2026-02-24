@@ -34,7 +34,7 @@ export const Header = async () => {
         </div>
       </div>
 
-      <div className="hidden md:flex md:justify-between md:items-center md:px-15 md:py-3 2xl:w-285">
+      <div className="hidden md:w-screen md:flex md:justify-between md:items-center md:px-15 md:py-3">
         <Link href={`/`}>
           <div className="flex gap-2 text-indigo-700">
             <Film />
