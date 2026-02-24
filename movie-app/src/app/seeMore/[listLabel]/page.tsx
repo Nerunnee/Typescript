@@ -11,6 +11,12 @@ import {
 import { getMovies } from "../../../lib/getData";
 import Link from "next/link";
 
+const labelMap: Record<string, string> = {
+  upcoming: "Upcoming",
+  top_rated: "Top Rated",
+  popular: "Popular",
+};
+
 const SeeMore = async ({
   params,
   searchParams,
@@ -19,19 +25,19 @@ const SeeMore = async ({
   searchParams?: { [key: string]: string };
 }) => {
   const { listLabel } = await params;
-  const label = searchParams?.query;
+  const label = labelMap[listLabel] ?? listLabel;
   const movie = await getMovies(listLabel);
-  console.log({ movie });
+
   return (
-    <div>
-      <h3 className="text-2xl font-semibold">{label}</h3>
+    <div className="px-5 md:px-15 2xl:px-167">
+      <h3 className="text-2xl font-semibold my-8">{label}</h3>
       <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {movie.results.map((movie) => (
           <Link href={`/${movie.id}`} key={movie.id}>
             <MoviesListMovieCard
               img={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
               rating={movie.vote_average}
-              movieName="Dear Santa"
+              movieName={movie.title}
             />
           </Link>
         ))}

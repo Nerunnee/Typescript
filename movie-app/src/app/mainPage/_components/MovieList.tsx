@@ -41,7 +41,7 @@ const MoviesListHeader = ({
   return (
     <div className="flex justify-between items-center w-full">
       <h3 className="text-2xl font-semibold">{label}</h3>
-      <Link href={`/seeMore/${listLabel}?label=${label}`}>
+      <Link href={`/seeMore/${listLabel}`}>
         <Button variant="ghost" className="text-sm">
           See more <ArrowRight />
         </Button>

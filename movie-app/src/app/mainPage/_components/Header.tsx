@@ -13,6 +13,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { SearchInput } from "./SearchInput";
 import { getMovieByGenres } from "@/lib/genre";
+import Link from "next/link";
 
 export const Header = async () => {
   const { genres } = await getMovieByGenres();
@@ -20,10 +21,12 @@ export const Header = async () => {
   return (
     <div>
       <div className="flex justify-between items-center p-5 md:hidden">
-        <div className="flex gap-2 text-indigo-700">
-          <Film />
-          <p className="italic font-bold">Movie N</p>
-        </div>
+        <Link href={`/`}>
+          <div className="flex gap-2 text-indigo-700">
+            <Film />
+            <p className="italic font-bold">Movie N</p>
+          </div>
+        </Link>
 
         <div className="flex gap-3">
           <SearchInput />
@@ -31,11 +34,13 @@ export const Header = async () => {
         </div>
       </div>
 
-      <div className="hidden md:flex md:justify-between md:items-center md:px-15 md:py-3 2xl:w-285 2xl:px-30">
-        <div className="flex gap-2 text-indigo-700">
-          <Film />
-          <p className="italic font-bold">Movie N</p>
-        </div>
+      <div className="hidden md:flex md:justify-between md:items-center md:px-15 md:py-3 2xl:w-285">
+        <Link href={`/`}>
+          <div className="flex gap-2 text-indigo-700">
+            <Film />
+            <p className="italic font-bold">Movie N</p>
+          </div>
+        </Link>
 
         <div className="flex gap-3">
           <DropdownMenu>

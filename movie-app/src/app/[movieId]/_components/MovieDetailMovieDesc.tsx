@@ -12,7 +12,7 @@ export const MovieDetailMovieDesc = ({ movie }: MovieDetailMovieDescProps) => {
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
           alt="Movie Image"
-          className="w-25 h-37"
+          className="w-25 h-37 md:hidden"
         />
         <div>
           <div className="flex flex-wrap gap-4 mb-5">
