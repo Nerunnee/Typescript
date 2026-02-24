@@ -1,5 +1,4 @@
 "use client";
-import { Input } from "@/components/ui/input";
 import {
   InputGroup,
   InputGroupAddon,
@@ -7,7 +6,7 @@ import {
 } from "@/components/ui/input-group";
 import { getSearchMovies } from "@/lib/movie-search";
 import { Movie } from "@/lib/types";
-import { Search } from "lucide-react";
+import { Search, Star } from "lucide-react";
 import { ChangeEventHandler, useEffect, useState } from "react";
 
 export const SearchInput = () => {
@@ -47,7 +46,28 @@ export const SearchInput = () => {
       </InputGroup>
       <div className="absolute bg-white z-50">
         {movies.map((movie) => (
-          <h1 key={movie.id}>{movie.title}</h1>
+          <div key={movie.id} className="flex w-83.75 p-3">
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt="Movie Image"
+              className="w-16.75 h-25 mr-4"
+            />
+            <div>
+              <p className="text-xl">{movie.title}</p>
+              <div className="flex items-center text-sm mb-3">
+                <Star fill="#FDE047" stroke="none" size={16} className="mr-1" />
+                <div className="flex">
+                  <p>{movie.vote_average.toFixed(1)}</p>
+                  <span className="text-gray-400">/</span>
+                  <span className="text-gray-400">10</span>
+                </div>
+              </div>
+              <div className="w-53 flex justify-between">
+                <p>{movie.release_date.slice(0, 4)}</p>
+                <p>See more</p>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>

@@ -56,10 +56,10 @@ export const Hero = (props: HeroProps) => {
         ))}
       </CarouselContent>
       <div className="absolute top-1/4 left-2/12 md:top-3/6 md:left-1/12 2xl:left-1/5">
-        <CarouselPrevious className="w-6 h-6 md:w-10 md:h-10 lg:w-15 lg:h-15 lg:text-2xl 2xl:bg-black 2xl:text-white" />
+        <CarouselPrevious className="w-6 h-6 md:w-10 md:h-10 lg:text-2xl 2xl:bg-black 2xl:text-white" />
       </div>
       <div className="absolute top-1/4 right-2/12 md:top-3/6 md:right-1/12 2xl:right-1/5">
-        <CarouselNext className="w-6 h-6 md:w-10 md:h-10 lg:w-15 lg:h-15 2xl:bg-black 2xl:text-white" />
+        <CarouselNext className="w-6 h-6 md:w-10 md:h-10 2xl:bg-black 2xl:text-white" />
       </div>
     </Carousel>
   );
