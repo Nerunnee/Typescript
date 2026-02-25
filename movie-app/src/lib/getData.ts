@@ -1,8 +1,11 @@
 import { Response } from "@/lib/types";
 
-export const getMovies = async (listLabel: string): Promise<Response> => {
+export const getMovies = async (
+  listLabel: string,
+  page: string | undefined,
+): Promise<Response> => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${listLabel}?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/movie/${listLabel}?language=en-US&page=${page ?? 1}`,
     {
       method: "GET",
       headers: {

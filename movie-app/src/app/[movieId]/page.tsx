@@ -8,13 +8,17 @@ import { MoviesList } from "./_components/MoviesList";
 
 export default async function MovieDetailsPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ movieId: string }>;
+  searchParams: Promise<{ page: string | undefined }>;
 }) {
   const { movieId } = await params;
+  const { page } = await searchParams;
+  const currentPage = page || "1";
   const movie = await getMovieById(movieId);
   const credits = await getMovieByCredits(movieId);
-  const similar = await getSimilarMovies(movieId, "similar");
+  const similar = await getSimilarMovies(movieId, "similar", currentPage);
   const listLabel: string = "";
 
   return (
@@ -27,6 +31,7 @@ export default async function MovieDetailsPage({
         listLabel="similar"
         data={similar}
         movieId={movieId}
+        page={currentPage}
       />
     </div>
   );

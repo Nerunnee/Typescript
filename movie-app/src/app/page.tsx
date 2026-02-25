@@ -2,16 +2,11 @@ import { getMovies } from "../lib/getData";
 import { Hero } from "./mainPage/_components/Hero";
 import { MoviesList } from "./mainPage/_components/MovieList";
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ movieId: string }>;
-}) {
-  const { movieId } = await params;
-  const upcomingMovies = await getMovies("upcoming");
-  const topRatedMovies = await getMovies("top_rated");
-  const popularMovies = await getMovies("popular");
-  const nowPlayingMovies = await getMovies("now_playing");
+export default async function Home() {
+  const upcomingMovies = await getMovies("upcoming", "1");
+  const topRatedMovies = await getMovies("top_rated", "1");
+  const popularMovies = await getMovies("popular", "1");
+  const nowPlayingMovies = await getMovies("now_playing", "1");
 
   return (
     <div className="2xl:flex 2xl:flex-col 2xl:justify-center 2xl:items-center">
