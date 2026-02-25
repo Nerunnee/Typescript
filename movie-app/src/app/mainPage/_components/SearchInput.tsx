@@ -46,6 +46,7 @@ export const SearchInput = () => {
           <Search />
         </InputGroupAddon>
       </InputGroup>
+
       <div className="absolute bg-white z-50 rounded-xl">
         {movies.slice(0, 5).map((movie) => (
           <div key={movie.id} className="w-83.75 px-3">
@@ -83,6 +84,7 @@ export const SearchInput = () => {
             <div className="bg-gray-100 w-full border my-2"></div>
           </div>
         ))}
+        <div>see all</div>
       </div>
     </div>
   );
