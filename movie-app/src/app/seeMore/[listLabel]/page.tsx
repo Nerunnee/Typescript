@@ -10,23 +10,28 @@ import {
 } from "@/components/ui/pagination";
 import { getMovies } from "../../../lib/getData";
 import Link from "next/link";
+import { getSimilarMovies } from "@/lib/get-similar-movie";
 
 const labelMap: Record<string, string> = {
   upcoming: "Upcoming",
   top_rated: "Top Rated",
   popular: "Popular",
+  similar: "More Like",
 };
 
 const SeeMore = async ({
   params,
   searchParams,
 }: {
-  params: Promise<{ listLabel: string }>;
-  searchParams?: { [key: string]: string };
+  params: Promise<{ movieId: string; listLabel: string }>;
+  searchParams: { [key: string]: string | undefined };
 }) => {
   const { listLabel } = await params;
+  const { movieId } = await searchParams;
   const label = labelMap[listLabel] ?? listLabel;
-  const movie = await getMovies(listLabel);
+  const movie = movieId
+    ? await getSimilarMovies(movieId, listLabel)
+    : await getMovies(listLabel);
 
   return (
     <div className="px-5 md:px-15 2xl:px-167">

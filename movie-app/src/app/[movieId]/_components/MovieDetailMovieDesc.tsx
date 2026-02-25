@@ -7,7 +7,7 @@ type MovieDetailMovieDescProps = {
 
 export const MovieDetailMovieDesc = ({ movie }: MovieDetailMovieDescProps) => {
   return (
-    <div className="md:px-10 lg:px-20 xl:px-35">
+    <div className="md:px-10 lg:px-20 xl:px-35 2xl:px-100">
       <div className="flex gap-8.5 px-5 mt-8 mb-5">
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

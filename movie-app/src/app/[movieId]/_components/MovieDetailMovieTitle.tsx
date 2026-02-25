@@ -9,13 +9,16 @@ type MovieDetailMovieTitleProps = {
 export const MovieDetailMovieTitle = ({
   movie,
 }: MovieDetailMovieTitleProps) => {
+  console.log(movie);
+
   return (
-    <div className="md:px-10 lg:px-20 xl:px-35">
+    <div className="md:px-10 lg:px-20 xl:px-35 2xl:px-100">
       <div className="flex justify-between items-center px-5 mt-8 mb-4">
         <div>
           <h3 className="text-2xl font-semibold">{movie.title}</h3>
           <p className="text-sm">
-            {movie.release_date} · PG · {Math.floor(movie.runtime / 60)}h:
+            {movie.release_date} · {movie.adult ? "R" : "PG"} ·{" "}
+            {Math.floor(movie.runtime / 60)}h:
             {movie.runtime % 60}m
           </p>
         </div>
@@ -33,16 +36,16 @@ export const MovieDetailMovieTitle = ({
       </div>
 
       <div>
-        <div className="flex justify-between md:ml-5">
+        <div className="flex gap-13 md:ml-5">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt="Movie Poster Image"
-            className="hidden md:block md:h-63 lg:h-81 xl:h-111 2xl:h-203"
+            className="hidden md:block md:h-63 lg:h-81 xl:h-111 2xl:h-138"
           />
           <img
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             alt="Movie Image"
-            className="relative md:h-63 lg:h-81 xl:h-111 2xl:h-203"
+            className="relative md:h-63 lg:h-81 xl:h-111 2xl:h-138"
           />
         </div>
         <div className="flex items-center gap-3 absolute top-2/5 ml-3 text-white mb-3">

@@ -82,10 +82,8 @@ export const SearchInput = () => {
             </div>
             <div className="bg-gray-100 w-full border my-2"></div>
           </div>
-          
         ))}
       </div>
-      
     </div>
   );
 };
