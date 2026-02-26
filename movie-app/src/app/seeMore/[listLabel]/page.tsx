@@ -21,16 +21,15 @@ const SeeMore = async ({
   searchParams,
 }: {
   params: Promise<{
-    movieId: string;
     listLabel: string;
   }>;
-  searchParams: { page: string | undefined };
+  searchParams: Promise<{ page: string | undefined; movieId: string }>;
 }) => {
-  const { listLabel, movieId } = await params;
-  const { page } = await searchParams;
+  const { listLabel } = await params;
+  const { movieId, page } = await searchParams;
   const label = labelMap[listLabel] ?? listLabel;
   const movies = movieId
-    ? await getSimilarMovies(movieId, listLabel)
+    ? await getSimilarMovies(movieId, listLabel, page)
     : await getMovies(listLabel, page);
 
   const { total_pages } = movies;
@@ -64,7 +63,11 @@ const SeeMore = async ({
             return (
               <PaginationItem key={index}>
                 <PaginationLink
-                  href={`?page=${pageNumber} `}
+                  href={
+                    movieId
+                      ? `?movieId=${movieId}&page=${pageNumber}`
+                      : `?page=${pageNumber} `
+                  }
                   isActive={pageNumber === currentPage}
                 >
                   {pageNumber}
