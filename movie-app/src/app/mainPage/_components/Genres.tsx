@@ -32,15 +32,17 @@ export const Genres = async () => {
             <DropdownMenuItem>See lists of movies by genre</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem className="w-45 flex flex-wrap gap-4 mt-4 md:w-80 lg:w-100 xl:w-134.25">
+          <div className="w-45 flex flex-wrap gap-1 mt-4 md:w-80 lg:w-100 xl:w-134.25">
             {genres.map((genre) => (
-              <Link key={genre.id} href={`/search?genre=${genre.id}`}>
-                <Badge variant={"outline"} className="px-2.5">
-                  {genre.name}
-                </Badge>
-              </Link>
+              <DropdownMenuItem key={genre.id} asChild>
+                <Link href={`/search?genre=${genre.id}`}>
+                  <Badge variant={"outline"} className="px-2.5 cursor-pointer">
+                    {genre.name}
+                  </Badge>
+                </Link>
+              </DropdownMenuItem>
             ))}
-          </DropdownMenuItem>
+          </div>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

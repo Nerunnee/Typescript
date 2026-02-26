@@ -14,7 +14,7 @@ import Link from "next/link";
 export const SearchInput = () => {
   const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [toggled, setToggled] = useState(Boolean);
+  const [toggled, setToggled] = useState(false);
 
   const onChangeSearchValue: ChangeEventHandler<HTMLInputElement> = (event) => {
     setSearchValue(event.target.value);
@@ -36,6 +36,11 @@ export const SearchInput = () => {
 
     return () => clearTimeout(timer);
   }, [searchValue]);
+
+  const handleClose = () => {
+    setToggled(false);
+    setSearchValue("");
+  };
 
   return (
     <div className="relative w-fit">
@@ -78,7 +83,11 @@ export const SearchInput = () => {
                   <div className="w-53 flex justify-between">
                     <p>{movie.release_date.slice(0, 4)}</p>
                     <Link href={`/${movie.id}`} key={movie.id}>
-                      <Button variant="ghost" className="text-sm">
+                      <Button
+                        variant="ghost"
+                        className="text-sm"
+                        onClick={handleClose}
+                      >
                         See more <ArrowRight />
                       </Button>
                     </Link>
@@ -89,7 +98,11 @@ export const SearchInput = () => {
             </div>
           ))}
           <Link href={`/search?searchValue=${searchValue}`}>
-            <Button variant={"ghost"} className="px-3 mb-2">
+            <Button
+              variant={"ghost"}
+              className="px-3 mb-2"
+              onClick={handleClose}
+            >
               See all results for {searchValue.toUpperCase()}
             </Button>
           </Link>
