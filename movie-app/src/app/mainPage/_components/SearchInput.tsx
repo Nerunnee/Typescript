@@ -88,7 +88,7 @@ export const SearchInput = () => {
               <div className="bg-gray-100 w-full border my-2"></div>
             </div>
           ))}
-          <Link href={`/search?${searchValue}`}>
+          <Link href={`/search?searchValue=${searchValue}`}>
             <Button variant={"ghost"} className="px-3 mb-2">
               See all results for {searchValue.toUpperCase()}
             </Button>
