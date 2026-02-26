@@ -24,7 +24,7 @@ export const MoviesListMovieCard = (props: MoviesListMovieCardProps) => {
             <span className="text-gray-400">10</span>
           </div>
         </div>
-        <p className="h-12 text-sm md:text-sm lg:text-lg">{movieName}</p>
+        <p className="h-15 text-sm font-semibold md:text-base">{movieName}</p>
       </div>
     </div>
   );

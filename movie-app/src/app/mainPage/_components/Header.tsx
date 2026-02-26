@@ -1,23 +1,10 @@
-import { ChevronDown, Film, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Film } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Badge } from "@/components/ui/badge";
 import { SearchInput } from "./SearchInput";
-import { getMovieByGenres } from "@/lib/genre";
 import Link from "next/link";
+import { Genres } from "./Genres";
 
-export const Header = async () => {
-  const { genres } = await getMovieByGenres();
-
+export const Header = () => {
   return (
     <div>
       <div className="flex justify-between items-center p-5 md:hidden">
@@ -29,6 +16,7 @@ export const Header = async () => {
         </Link>
 
         <div className="flex gap-3">
+          <Genres />
           <SearchInput />
           <ModeToggle />
         </div>
@@ -43,32 +31,7 @@ export const Header = async () => {
         </Link>
 
         <div className="flex gap-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="text-sm">
-                <ChevronDown />
-                Genre
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="flex flex-col p-5 ml-122">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel className="text-2xl font-semibold">
-                  Genres
-                </DropdownMenuLabel>
-                <DropdownMenuItem>
-                  See lists of movies by genre
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="w-134.25 flex flex-wrap gap-4 mt-4">
-                {genres.map((genre) => (
-                  <Badge key={genre.id} variant={"outline"} className="px-2.5">
-                    {genre.name}
-                  </Badge>
-                ))}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Genres />
           <SearchInput />
         </div>
         <ModeToggle />
