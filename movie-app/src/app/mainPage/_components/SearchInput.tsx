@@ -57,7 +57,7 @@ export const SearchInput = () => {
 
       {toggled && (
         <div className="absolute bg-white z-50 rounded-xl">
-          {movies.slice(0, 5).map((movie) => (
+          {movies.slice(0, 4).map((movie) => (
             <div key={movie.id} className="w-83.75 px-3">
               <div className="flex w-77.75 p-2">
                 <img
