@@ -65,7 +65,7 @@ export const SearchInput = () => {
                   alt="Movie Image"
                   className="w-16.75 h-25 mr-4"
                 />
-                <div>
+                <div className="dark:text-black">
                   <p className="font-semibold">{movie.title}</p>
                   <div className="flex items-center text-sm mb-3">
                     <Star
@@ -100,7 +100,7 @@ export const SearchInput = () => {
           <Link href={`/search?searchValue=${searchValue}`}>
             <Button
               variant={"ghost"}
-              className="px-3 mb-2"
+              className="px-3 mb-2 dark:text-black"
               onClick={handleClose}
             >
               See all results for {searchValue.toUpperCase()}
