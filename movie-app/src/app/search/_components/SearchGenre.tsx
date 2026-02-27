@@ -13,6 +13,10 @@ export const SearchGenre = async ({
   const { results } = await getMovieByGenreId(String(genre));
   const { genres } = await getMovieByGenres();
 
+  const selectedGenreName = genres.find(
+    (g) => String(g.id) === String(genre),
+  )?.name;
+
   return (
     <div className="flex flex-col px-5 md:px-15 lg:flex-row lg:gap-7">
       <div>
@@ -25,7 +29,13 @@ export const SearchGenre = async ({
           <div className="flex flex-wrap gap-4 mt-5">
             {genres.map((genre) => (
               <Link href={`?genre=${genre.id}`} key={genre.id}>
-                <Badge key={genre.id} variant={"outline"} className="px-2.5">
+                <Badge
+                  key={genre.id}
+                  variant={
+                    String(genre) === String(genre.id) ? "default" : "outline"
+                  }
+                  className="px-2.5 cursor-pointer"
+                >
                   {genre.name}
                 </Badge>
               </Link>
@@ -37,8 +47,8 @@ export const SearchGenre = async ({
       <div className="lg:border lg:bg-gray-100 lg:mt-20"></div>
 
       <div className="lg:mt-11">
-        <p className="my-8">
-          {results.length} titles in {genre}
+        <p className="font-semibold text-xl">
+          {results.length} titles in {selectedGenreName ?? "All"}
         </p>
 
         <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
