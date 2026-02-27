@@ -1,6 +1,6 @@
 import { getMovieByGenreId } from "@/lib/get-movies-by-genre-id";
 import Link from "next/link";
-import { MoviesListMovieCard } from "@/components/MovieListMovieCard";
+import { MoviesListMovieCard } from "@/app/shared/MovieListMovieCard";
 import { getMovieByGenres } from "@/lib/get-genre";
 import { Badge } from "@/components/ui/badge";
 

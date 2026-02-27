@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MoviesListMovieCard } from "@/components/MovieListMovieCard";
+import { MoviesListMovieCard } from "@/app/shared/MovieListMovieCard";
 import { getMovieByGenres } from "@/lib/get-genre";
 import { Badge } from "@/components/ui/badge";
 import { getSearchMovies } from "@/lib/movie-search";

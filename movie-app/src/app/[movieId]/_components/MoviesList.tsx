@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MoviesListMovieCard } from "@/components/MovieListMovieCard";
+import { MoviesListMovieCard } from "@/app/shared/MovieListMovieCard";
 import Link from "next/link";
 import { Response } from "@/lib/types";
 
