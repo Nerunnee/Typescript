@@ -19,7 +19,7 @@ export const SearchTitle = async ({
         <p className="text-2xl mt-3 mb-8">Search results</p>
 
         <p className="mb-8 font-semibold text-xl">
-          {results.length} results for {searchValue}
+          {results.length} results for a {searchValue}
         </p>
 
         <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
