@@ -47,7 +47,7 @@ export const SearchGenre = async ({
       <div className="lg:border lg:bg-gray-100 lg:mt-20"></div>
 
       <div className="lg:mt-11">
-        <p className="font-semibold text-xl">
+        <p className="font-semibold text-xl my-8">
           {results.length} titles in {selectedGenreName ?? "All"}
         </p>
 

@@ -15,10 +15,10 @@ export default async function MovieDetailsPage({
 }) {
   const { movieId } = await params;
   const { page } = await searchParams;
-  const currentPage = page || "1";
+
   const movie = await getMovieById(movieId);
   const credits = await getMovieByCredits(movieId);
-  const similar = await getSimilarMovies(movieId, "similar", currentPage);
+  const similar = await getSimilarMovies(movieId, "similar", page);
   const listLabel: string = "";
 
   return (
@@ -31,7 +31,6 @@ export default async function MovieDetailsPage({
         listLabel="similar"
         data={similar}
         movieId={movieId}
-        page={currentPage}
       />
     </div>
   );
