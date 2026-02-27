@@ -30,7 +30,6 @@ export const SearchGenre = async ({
             {genres.map((genre) => (
               <Link href={`?genre=${genre.id}`} key={genre.id}>
                 <Badge
-                  key={genre.id}
                   variant={
                     String(genre) === String(genre.id) ? "default" : "outline"
                   }
@@ -47,7 +46,7 @@ export const SearchGenre = async ({
       <div className="lg:border lg:bg-gray-100 lg:mt-20"></div>
 
       <div className="lg:mt-11">
-        <p className="font-semibold text-xl my-8">
+        <p className="my-8 font-semibold text-xl">
           {results.length} titles in {selectedGenreName ?? "All"}
         </p>
 

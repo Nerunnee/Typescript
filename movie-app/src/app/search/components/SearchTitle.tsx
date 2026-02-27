@@ -44,10 +44,7 @@ export const SearchTitle = async ({
         </div>
         <div className="flex flex-wrap gap-4 mt-5 lg:w-96.75">
           {genres.map((genre) => (
-            <Link
-              href={`?searchValue=${searchValue}&searchValue=${genre.id}`}
-              key={genre.id}
-            >
+            <Link href={`?genre=${genre.id}`} key={genre.id}>
               <Badge key={genre.id} variant={"outline"} className="px-2.5">
                 {genre.name}
               </Badge>

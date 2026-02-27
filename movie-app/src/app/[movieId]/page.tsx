@@ -15,7 +15,6 @@ export default async function MovieDetailsPage({
 }) {
   const { movieId } = await params;
   const { page } = await searchParams;
-
   const movie = await getMovieById(movieId);
   const credits = await getMovieByCredits(movieId);
   const similar = await getSimilarMovies(movieId, "similar", page);
