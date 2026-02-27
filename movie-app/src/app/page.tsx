@@ -1,6 +1,6 @@
 import { getMovies } from "../lib/getData";
-import { Hero } from "./mainPage/_components/Hero";
-import { MoviesList } from "./mainPage/_components/MovieList";
+import { Hero } from "./_components/Hero";
+import { MoviesList } from "./_components/MovieList";
 
 export default async function Home() {
   const upcomingMovies = await getMovies("upcoming", "1");
