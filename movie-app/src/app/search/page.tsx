@@ -1,5 +1,5 @@
-import { SearchGenre } from "./components/SearchGenre";
-import { SearchTitle } from "./components/SearchTitle";
+import { SearchGenre } from "./_components/SearchGenre";
+import { SearchTitle } from "./_components/SearchTitle";
 
 export default async function Search({
   searchParams,
