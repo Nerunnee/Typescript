@@ -9,7 +9,7 @@ export default async function Home() {
   const nowPlayingMovies = await getMovies("now_playing", "1");
 
   return (
-    <div className="2xl:flex 2xl:flex-col 2xl:justify-center 2xl:items-center">
+    <div className=" 2xl:flex 2xl:flex-col 2xl:justify-center 2xl:items-center">
       <Hero play="Now Playing:" data={nowPlayingMovies} />
       <MoviesList label="Upcoming" listLabel="upcoming" data={upcomingMovies} />
       <MoviesList

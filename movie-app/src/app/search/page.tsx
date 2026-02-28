@@ -10,7 +10,7 @@ export default async function Search({
 
   return (
     <div>
-      {genre && <SearchGenre searchParams={searchParams} />}
+      {!searchValue && genre && <SearchGenre searchParams={searchParams} />}
       {searchValue && <SearchTitle searchParams={searchParams} />}
     </div>
   );
