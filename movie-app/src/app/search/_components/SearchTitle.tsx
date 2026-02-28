@@ -1,17 +1,28 @@
 import Link from "next/link";
 import { MoviesListMovieCard } from "@/app/shared/MovieListMovieCard";
 import { getMovieByGenres } from "@/lib/get-genre";
-import { Badge } from "@/components/ui/badge";
 import { getSearchMovies } from "@/lib/movie-search";
+import { GenreList } from "./GenreList";
 
 export const SearchTitle = async ({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const { searchValue } = await searchParams;
+  const { searchValue, genre } = await searchParams;
   const { results } = await getSearchMovies(String(searchValue));
   const { genres } = await getMovieByGenres();
+
+  const selectedGenreIds = genre
+    ? String(genre).split(",").filter(Boolean).map(Number)
+    : [];
+
+  const filteredResults =
+    selectedGenreIds.length > 0
+      ? results.filter((movie) =>
+          selectedGenreIds.some((id) => movie.genre_ids.includes(id)),
+        )
+      : results;
 
   return (
     <div className="flex flex-col px-5 md:px-15 lg:flex-row lg:gap-7">
@@ -23,7 +34,7 @@ export const SearchTitle = async ({
         </p>
 
         <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {results.map((movie) => (
+          {filteredResults.map((movie) => (
             <Link href={`/${movie.id}`} key={movie.id}>
               <MoviesListMovieCard
                 img={movie.poster_path}
@@ -38,19 +49,7 @@ export const SearchTitle = async ({
       <div className="lg:border lg:bg-gray-100 lg:mt-20"></div>
 
       <div className="max-w-97 mt-8 lg:mt-19">
-        <div className="flex flex-col gap-1 mb-5">
-          <p>Search by genre</p>
-          <p>See lists of movies by genre</p>
-        </div>
-        <div className="flex flex-wrap gap-4 mt-5 lg:w-96.75">
-          {genres.map((genre) => (
-            <Link href={`?genre=${genre.id}`} key={genre.id}>
-              <Badge key={genre.id} variant={"outline"} className="px-2.5">
-                {genre.name}
-              </Badge>
-            </Link>
-          ))}
-        </div>
+        <GenreList genres={genres} selectedGenre={genre} />
       </div>
     </div>
   );

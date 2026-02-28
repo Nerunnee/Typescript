@@ -36,7 +36,10 @@ export const Genres = async () => {
             {genres.map((genre) => (
               <DropdownMenuItem key={genre.id} asChild>
                 <Link href={`/search?genre=${genre.id}`}>
-                  <Badge variant={"outline"} className="px-2.5 cursor-pointer">
+                  <Badge
+                    variant={genre ? "outline" : "default"}
+                    className="px-2.5 cursor-pointer "
+                  >
                     {genre.name}
                   </Badge>
                 </Link>
