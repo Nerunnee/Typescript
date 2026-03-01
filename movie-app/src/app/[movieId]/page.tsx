@@ -5,6 +5,7 @@ import { MovieDetailMovieDesc } from "./_components/MovieDetailMovieDesc";
 import { MovieDetailCredits } from "./_components/MovieDetailCredits";
 import { getSimilarMovies } from "@/lib/get-similar-movie";
 import { MoviesList } from "./_components/MoviesList";
+import { getMovieByVideos } from "@/lib/get-movie-video";
 
 export default async function MovieDetailsPage({
   params,
@@ -17,12 +18,13 @@ export default async function MovieDetailsPage({
   const { page } = await searchParams;
   const movie = await getMovieById(movieId);
   const credits = await getMovieByCredits(movieId);
+  const videos = await getMovieByVideos(movieId);
   const similar = await getSimilarMovies(movieId, "similar", page);
   const listLabel: string = "";
 
   return (
     <div>
-      <MovieDetailMovieTitle movie={movie} />
+      <MovieDetailMovieTitle movie={movie} videos={videos} />
       <MovieDetailMovieDesc movie={movie} />
       <MovieDetailCredits credits={credits} />
       <MoviesList
