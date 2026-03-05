@@ -20,7 +20,6 @@ export default async function MovieDetailsPage({
   const credits = await getMovieByCredits(movieId);
   const videos = await getMovieByVideos(movieId);
   const similar = await getSimilarMovies(movieId, "similar", page);
-  const listLabel: string = "";
 
   return (
     <div>

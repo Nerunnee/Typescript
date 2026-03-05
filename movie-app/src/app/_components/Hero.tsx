@@ -34,7 +34,7 @@ export const Hero = (props: HeroProps) => {
                 <div className="flex justify-between items-center md:text-white md:flex-col md:items-start">
                   <div>
                     <p className="text-sm md:text-base">{play}</p>
-                    <p className="text-2xl font-semibold lg:text-4xl">{}</p>
+                    <p className="text-2xl font-semibold lg:text-4xl">{movie.title}</p>
                   </div>
                   <div className="flex md:text-lg">
                     <Star fill="#FDE047" stroke="none" />

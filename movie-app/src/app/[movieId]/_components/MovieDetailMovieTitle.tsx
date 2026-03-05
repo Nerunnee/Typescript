@@ -63,14 +63,15 @@ export const MovieDetailMovieTitle = ({
           <Dialog>
             <DialogTrigger asChild>
               <Button disabled={!trailer?.key}>
-                <DialogTitle className="flex gap-2">
+                <div className="flex gap-2">
                   <Play /> Play Trailer
-                </DialogTitle>
+                </div>
               </Button>
             </DialogTrigger>
 
             {trailer?.key && (
               <DialogContent className="max-w-full p-0 bg-black border-none top-79 md:top-71 md:left-100 lg:top-80 lg:left-150 xl:top-96 xl:left-190 2xl:top-109 2xl:left-270">
+                <DialogTitle className="sr-only">Movie Trailer</DialogTitle>
                 <iframe
                   src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1`}
                   title="Movie Trailer"

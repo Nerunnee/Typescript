@@ -28,7 +28,7 @@ export const SearchInput = () => {
     }
 
     const timer = setTimeout(async () => {
-      const data = await getSearchMovies(searchValue);
+      const data = await getSearchMovies(searchValue, undefined);
 
       setToggled(true);
       setMovies(data.results);

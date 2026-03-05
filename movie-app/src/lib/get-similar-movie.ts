@@ -6,7 +6,7 @@ export const getSimilarMovies = async (
   page: string | undefined,
 ): Promise<Response> => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/${listLabel}?language=en-US&page=${page ?? 1}}`,
+    `https://api.themoviedb.org/3/movie/${movieId}/${listLabel}?language=en-US&page=${page ?? 1}`,
     {
       method: "GET",
       headers: {

@@ -47,7 +47,7 @@ const SeeMore = async ({
         {movies.results.map((movie) => (
           <Link href={`/${movie.id}`} key={movie.id}>
             <MoviesListMovieCard
-              img={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+              img={movie.poster_path}
               rating={movie.vote_average}
               movieName={movie.title}
             />
@@ -66,7 +66,7 @@ const SeeMore = async ({
                   href={
                     movieId
                       ? `?movieId=${movieId}&page=${pageNumber}`
-                      : `?page=${pageNumber} `
+                      : `?page=${pageNumber}`
                   }
                   isActive={pageNumber === currentPage}
                 >
