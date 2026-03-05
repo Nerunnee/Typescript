@@ -2,9 +2,10 @@ import { Response } from "@/lib/types";
 
 export const getSearchMovies = async (
   searchValue: string,
+  page: string | undefined,
 ): Promise<Response> => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${searchValue}&language=en-US`,
+    `https://api.themoviedb.org/3/search/movie?query=${searchValue}&language=en-US&page=${page ?? 1}`,
     {
       method: "GET",
       headers: {

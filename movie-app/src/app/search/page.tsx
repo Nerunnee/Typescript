@@ -4,7 +4,10 @@ import { SearchTitle } from "./_components/SearchTitle";
 export default async function Search({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{
+    [key: string]: string | string[] | undefined;
+    page: string | undefined;
+  }>;
 }) {
   const { genre, searchValue } = await searchParams;
 

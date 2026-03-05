@@ -3,15 +3,24 @@ import Link from "next/link";
 import { MoviesListMovieCard } from "@/app/shared/MovieListMovieCard";
 import { getMovieByGenres } from "@/lib/get-genre";
 import { GenreList } from "./GenreList";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from "@/components/ui/pagination";
 
 export const SearchGenre = async ({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{
+    [key: string]: string | string[] | undefined;
+    page: string | undefined;
+  }>;
 }) => {
-  const { genre, genre: selectedGenre } = await searchParams;
+  const { genre, genre: selectedGenre, page } = await searchParams;
 
-  const { results } = await getMovieByGenreId(String(genre));
+  const { results, total_pages } = await getMovieByGenreId(String(genre), page);
   const { genres } = await getMovieByGenres();
 
   const selectedGenreNames = String(genre)
@@ -20,6 +29,12 @@ export const SearchGenre = async ({
     .map((id) => genres.find((g) => String(g.id) === id)?.name)
     .filter(Boolean)
     .join(", ");
+
+  const pages = Array(total_pages)
+    .fill(0)
+    .map((_, index) => index + 1);
+
+  const currentPage = Number(page) || 1;
 
   return (
     <div className="flex flex-col px-5 md:px-15 lg:flex-row lg:gap-7">
@@ -46,6 +61,26 @@ export const SearchGenre = async ({
             </Link>
           ))}
         </div>
+
+        <Pagination className="flex justify-end mt-8">
+          <PaginationContent>
+            {pages.map((pageNumber, index) => {
+              if (Number(pageNumber) + 3 < currentPage) return null;
+              if (Number(pageNumber) - 3 > currentPage) return null;
+
+              return (
+                <PaginationItem key={index}>
+                  <PaginationLink
+                    href={`?genre=${genre}&page=${pageNumber}`}
+                    isActive={pageNumber === currentPage}
+                  >
+                    {pageNumber}
+                  </PaginationLink>
+                </PaginationItem>
+              );
+            })}
+          </PaginationContent>
+        </Pagination>
       </div>
     </div>
   );

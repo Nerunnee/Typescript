@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Response } from "@/lib/types";
+import Link from "next/link";
 
 type HeroProps = {
   play: string;
@@ -43,13 +44,14 @@ export const Hero = (props: HeroProps) => {
                   </div>
                 </div>
 
-                <p className="text-sm md:text-white md:my-4 lg:text-xs">
+                <p className="text-sm md:text-white md:my-4 lg:text-base">
                   {movie.overview}
                 </p>
-                <Button className="w-36.25 md:bg-white md:text-black">
-                  <Play />
-                  Watch trailer
-                </Button>
+                <Link href={`/${movie.id}`}>
+                  <Button className="w-36.25 md:bg-white md:text-black">
+                    See more ...
+                  </Button>
+                </Link>
               </div>
             </div>
           </CarouselItem>

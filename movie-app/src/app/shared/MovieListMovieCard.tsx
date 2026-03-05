@@ -11,7 +11,7 @@ export const MoviesListMovieCard = (props: MoviesListMovieCardProps) => {
   return (
     <div className="rounded-md w-full">
       <img
-        src={`https://image.tmdb.org/t/p/original/${img}`}
+        src={`https://image.tmdb.org/t/p/w500/${img}`}
         alt="Movie Image"
         className="rounded-t-md w-full"
       />

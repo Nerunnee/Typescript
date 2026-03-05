@@ -3,14 +3,26 @@ import { MoviesListMovieCard } from "@/app/shared/MovieListMovieCard";
 import { getMovieByGenres } from "@/lib/get-genre";
 import { getSearchMovies } from "@/lib/movie-search";
 import { Badge } from "@/components/ui/badge";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from "@/components/ui/pagination";
 
 export const SearchTitle = async ({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{
+    [key: string]: string | string[] | undefined;
+    page: string | undefined;
+  }>;
 }) => {
-  const { searchValue, genre } = await searchParams;
-  const { results: allResults } = await getSearchMovies(String(searchValue));
+  const { searchValue, genre, page } = await searchParams;
+  const { results: allResults, total_pages } = await getSearchMovies(
+    String(searchValue),
+    page,
+  );
   const { genres } = await getMovieByGenres();
 
   const selectedGenreId = genre ? Number(genre) : null;
@@ -20,6 +32,12 @@ export const SearchTitle = async ({
     : allResults;
 
   const selectedGenreName = genres.find((g) => g.id === selectedGenreId)?.name;
+
+  const pages = Array(total_pages)
+    .fill(0)
+    .map((_, index) => index + 1);
+
+  const currentPage = Number(page) || 1;
 
   return (
     <div className="flex flex-col px-5 md:px-15 lg:flex-row lg:gap-7">
@@ -46,6 +64,30 @@ export const SearchTitle = async ({
             </Link>
           ))}
         </div>
+
+        <Pagination className="flex justify-end mt-8">
+          <PaginationContent>
+            {pages.map((pageNumber, index) => {
+              if (Number(pageNumber) + 3 < currentPage) return null;
+              if (Number(pageNumber) - 3 > currentPage) return null;
+
+              return (
+                <PaginationItem key={index}>
+                  <PaginationLink
+                    href={
+                      selectedGenreId
+                        ? `?searchValue=${searchValue}&genre=${selectedGenreId}&page=${pageNumber}`
+                        : `?searchValue=${searchValue}&page=${pageNumber}`
+                    }
+                    isActive={pageNumber === currentPage}
+                  >
+                    {pageNumber}
+                  </PaginationLink>
+                </PaginationItem>
+              );
+            })}
+          </PaginationContent>
+        </Pagination>
       </div>
 
       <div className="lg:border lg:bg-gray-100 lg:mt-20"></div>

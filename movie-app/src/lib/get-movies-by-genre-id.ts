@@ -1,8 +1,11 @@
 import { Response } from "@/lib/types";
 
-export const getMovieByGenreId = async (genreId: string): Promise<Response> => {
+export const getMovieByGenreId = async (
+  genreId: string,
+  page: string | undefined,
+): Promise<Response> => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?language=en&with_genres=${genreId}`,
+    `https://api.themoviedb.org/3/discover/movie?language=en&with_genres=${genreId}&page=${page ?? 1}`,
     {
       method: "GET",
       headers: {

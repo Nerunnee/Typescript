@@ -11,7 +11,6 @@ export const Header = () => {
         <Link href={`/`}>
           <div className="flex gap-2 text-indigo-700">
             <Film />
-            <p className="italic font-bold">Movie N</p>
           </div>
         </Link>
 

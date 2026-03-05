@@ -70,13 +70,12 @@ export const MovieDetailMovieTitle = ({
             </DialogTrigger>
 
             {trailer?.key && (
-              <DialogContent className="max-w-4xl p-0 bg-black border-none">
+              <DialogContent className="max-w-full p-0 bg-black border-none top-79 md:top-71 md:left-100 lg:top-80 lg:left-150 xl:top-96 xl:left-190 2xl:top-109 2xl:left-270">
                 <iframe
                   src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1`}
                   title="Movie Trailer"
                   allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  className="w-full aspect-video rounded-lg"
+                  className="w-full aspect-video rounded-lg md:w-130 lg:w-150 xl:w-200 2xl:w-250"
                 />
               </DialogContent>
             )}
