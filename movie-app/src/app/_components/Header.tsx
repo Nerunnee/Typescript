@@ -21,7 +21,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="hidden md:w-screen md:flex md:justify-between md:items-center md:px-15 md:py-3">
+      <div className="hidden md:w-screen md:flex md:justify-between md:items-center md:px-15 md:py-3 lg:px-20 2xl:px-165">
         <Link href={`/`}>
           <div className="flex gap-2 text-indigo-700">
             <Film />
