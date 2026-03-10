@@ -23,7 +23,7 @@ export const MovieDetailMovieTitle = ({
   );
 
   return (
-    <div className="md:px-10 lg:px-20 xl:px-35 2xl:px-100">
+    <div className="md:px-10 lg:px-15 xl:px-20 2xl:px-100">
       <div className="flex justify-between items-center px-5 mt-8 mb-4">
         <div>
           <h3 className="text-2xl font-semibold">{movie.title}</h3>
