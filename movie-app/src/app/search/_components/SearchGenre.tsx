@@ -37,7 +37,7 @@ export const SearchGenre = async ({
   const currentPage = Number(page) || 1;
 
   return (
-    <div className="flex flex-col px-5 md:px-15 lg:flex-row lg:gap-7">
+    <div className="flex flex-col px-5 md:px-15 lg:flex-row lg:gap-7 lg:px-20 2xl:px-165">
       <div className="max-w-97">
         <p className="text-2xl mt-3 mb-8">Search filter</p>
         <GenreList genres={genres} selectedGenre={selectedGenre} />

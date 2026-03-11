@@ -41,7 +41,7 @@ const SeeMore = async ({
   const currentPage = Number(page) || 1;
 
   return (
-    <div className="px-5 md:px-15 2xl:px-167">
+    <div className="px-5 md:px-15 lg:px-20 2xl:px-167">
       <h3 className="text-2xl font-semibold my-8">{label}</h3>
       <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {movies.results.map((movie) => (

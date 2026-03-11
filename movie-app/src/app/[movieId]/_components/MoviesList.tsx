@@ -16,7 +16,7 @@ export const MoviesList = async ({
   movieId: string;
 }) => {
   return (
-    <div className="flex flex-col gap-8 mt-8 mx-5 md:mx-15 lg:mx-20 xl:mx-40 2xl:mx-105">
+    <div className="flex flex-col gap-8 mt-8 mx-5 md:mx-15 lg:mx-20 2xl:mx-165">
       <MoviesListHeader listLabel={listLabel} label={label} movieId={movieId} />
       <div className="grid grid-cols-2 gap-5 md:hidden">
         {data.results.slice(0, 2).map((movie) => (
