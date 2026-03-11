@@ -47,16 +47,16 @@ export const MovieDetailMovieTitle = ({
       </div>
 
       <div>
-        <div className="flex gap-13 md:ml-5">
+        <div className="flex gap-4 md:ml-5 w-full">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt="Movie Poster Image"
-            className="hidden md:block md:h-61 lg:h-83 xl:h-125 2xl:h-121"
+            className="hidden md:block md:w-40 lg:w-52 xl:w-64 object-cover shrink-0 rounded-md"
           />
           <img
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             alt="Movie Image"
-            className="md:h-61 lg:h-83 xl:h-125 2xl:h-121"
+            className="h-48 sm:h-56 md:h-61 md:mr-10 lg:h-83 xl:h-96 object-cover flex-1 min-w-0 rounded-md"
           />
         </div>
         <div className="flex items-center gap-3 ml-5 text-white my-3">
@@ -70,13 +70,13 @@ export const MovieDetailMovieTitle = ({
             </DialogTrigger>
 
             {trailer?.key && (
-              <DialogContent className="max-w-full p-0 bg-black border-none top-79 md:top-71 md:left-100 lg:top-80 lg:left-150 xl:top-96 xl:left-190 2xl:top-109 2xl:left-270">
+              <DialogContent className="max-w-full p-0 bg-black border-none top-76 md:top-70.5 md:left-118 md:w-118 lg:top-81.5 lg:left-135 xl:top-88 xl:left-147 2xl:left-292">
                 <DialogTitle className="sr-only">Movie Trailer</DialogTitle>
                 <iframe
                   src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1`}
                   title="Movie Trailer"
                   allow="autoplay; encrypted-media"
-                  className="w-full aspect-video rounded-lg md:w-130 lg:w-150 xl:w-200 2xl:w-250"
+                  className="w-full aspect-video rounded-md h-48 md:h-61 md:w-118 lg:h-83.5 lg:w-160 xl:h-96 xl:w-252 2xl:w-242"
                 />
               </DialogContent>
             )}
